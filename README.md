@@ -1,24 +1,28 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 宴会のみのみ
+​
+## サイト概要
+### サイトテーマ
+​・幹事に優しい意見をまとめやすい予約サイト
+### テーマを選んだ理由
+・この時期は忘年会、新年会があると思います。そのような時期に一目で大人数の宴会が出来るお店が検索できるまとめサイトがあると大変便利であると感じたからです。また、私自身の経験から幹事をした際に大人数での日時調整や希望の
+金額帯、お店の決定など多くの決め事がありまとめることが大変だったため同じ思いをする幹事さんに便利だと感じて頂けると考えました。その中で今までのサイトには見なかったそのサイト内での宴会に参加する人のグループがあれば
+その宴会でどこに行ったか、誰と行ったかが残ると今後のお店の被りも防ぐことが出来、他サイトとの差別化が出来ると考えた為です。
+### ターゲットユーザ
+​・大人数での宴会の幹事をする方  
+・新しいお店に行ったみたい方
+### 主な利用シーン
+​・忘年会や新年会、送別会や歓迎会など大人数での宴会を考えている時  
+・行った事の無いお店を探している時
+## 設計書
+後日記載予定です。
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+その他使用に応じて追加、変更予定です。
+​
+## 使用素材
+使用に応じて追加、変更予定です。
