@@ -1,52 +1,37 @@
 Rails.application.routes.draw do
-  
-  namespace :public do
-    get 'reservations/index'
-    get 'reservations/show'
-  end
+
+#管理者側
   namespace :admin do
-    get 'reservation/index'
-    get 'reservation/show'
+    resources :reservations, only: [:index,:show,:update]
+    resources :genres, only: [:new,:index,:edit,:create,:update]
+    resources :stores, only: [:new,:index,:show,:edit,:create,:update]
+    resources :customers, only: [:index,:show,:edit,:update]
+    root to: "homes#top"
   end
-  namespace :admin do
-    get 'genres/new'
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'store/new'
-    get 'store/index'
-    get 'store/show'
-    get 'store/edit'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'home/top'
-    get 'home/about'
-  end
-  namespace :public do
+
+#ユーザー側
+  scope module: :public do
+    resources :reservations, only: [:index,:show] do
+      collection do
+        get "thanks" => "reservations#thanks"
+      end
+    end
+    resources :stores, only: [:new,:index,:show] do
+      resource :favorite, only: [:create, :destroy]
+    end
+    resources :customers, only: [:new,:edit]
     get 'favorites/index'
+    get "customers/my_page" => "customers#show"
+    root to: "homes#top"
+    get "about" => "homes#about"
   end
-  namespace :public do
-    get 'store/show'
-    get 'store/new'
-    get 'store/index'
-  end
-  namespace :public do
-    get 'customer/new'
-    get 'customer/edit'
-    get 'customer/show'
-  end
-#管理者側  
+
+#管理者側
   devise_for :admins, controllers: {
     sessions: "admin/sessions"
   }
 
-#ユーザー側  
+#ユーザー側
   devise_for :customers, controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
