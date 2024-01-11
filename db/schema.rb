@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2024_01_09_070735) do
 
   create_table "customers", force: :cascade do |t|
     t.string "last_name", null: false
-    t.string "farst_name", null: false
+    t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "email", null: false

@@ -1,16 +1,63 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>ReservationSite</title>
+    <title>宴会のみのみ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/5a814071a3.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm border-bottom border-dark">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <div class="mt-3">
+            <% if customer_signed_in? %>
+              <p>ようこそ<%= current_customer.last_name %>さん！</p>
+            <% end %>
+          </div>
+
+          <div class = "col text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="col text-right">
+              <ul class="navbar-nav justify-content-end">
+                
+              <% if customer_signed_in? %>
+                <li class="navbar-link my-1 ml-1"><%= link_to "マイページ", customers_my_page_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "店舗一覧", stores_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "お気に入り一覧", store_favorite_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %></li>
+
+              <% elsif admin_signed_in? %>
+                <li class="navbar-link my-1 ml-1"><%= link_to "店舗一覧", admin_stores_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "予約履歴一覧", admin_reservations_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "ジャンル一覧", admin_genre_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %></li>
+              <% else %>
+                <li class="navbar-link my-1 ml-1"><%= link_to "About", about_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "店舗一覧", stores_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-dark" %></li>
+                <li class="navbar-link my-1 ml-1"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-dark" %></li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mb-auto">
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
+    </main>
+
+    <footer class="border border-dark fixed-bottom pt-5 pb-4">
+    </footer>
   </body>
 </html>
