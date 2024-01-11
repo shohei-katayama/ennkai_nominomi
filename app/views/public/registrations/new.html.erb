@@ -11,7 +11,7 @@
   <div class="field form-group col-xs-12">
     <%= f.label :"名前", class: "col-sm-3" %>
     <%= f.label :"(姓)" %>
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",placeholder: "田中" %>
+    <%= f.text_field :last_name, required: true, autofocus: true, autocomplete: "last_name",placeholder: "田中" %>
     <%= f.label :"(名)" %>
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "太郎" %>
   </div>
