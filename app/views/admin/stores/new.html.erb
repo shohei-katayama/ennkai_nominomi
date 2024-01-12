@@ -1,2 +1,33 @@
-<h1>Admin::Stores#new</h1>
-<p>Find me in app/views/admin/stores/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 px-sm-0 offset-sm-1">
+      <h2>店舗新規登録</h2>
+    </div>
+
+    <div class="col-md-6 offset-md-3 ">
+      <%= form_with model: @store, url: admin_stores_path, method: :post do |f| %>
+        <table class="table">
+          <tr>
+            <th style="border:none;"><%= f.label :店舗画像 %></th>
+            <th style="border:none;"><%= f.file_field :image, accept: "image/*" %></th>
+          </tr>
+          <tr>
+            <th style="border:none;"><%= f.label :店舗名 %></th>
+            <td style="border:none;"><%= f.text_field :name, placeholder: "店舗名", size: "30x20" %></td>
+          </tr>
+          <tr>
+            <th style="border:none;"><%= f.label :店舗説明 %></th>
+            <td style="border:none;"><%= f.text_area :introduction, size: "30x5", placeholder: "ここに説明文を記述します" %></td>
+          </tr>
+          <tr>
+            <th style="border:none;"><%= f.label :ジャンル %></th>
+            <td style="border:none;"><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), size: "30x20" %></td>
+          </tr>
+        </table>
+        <div class="col d-flex justify-content-center">
+          <%= f.submit "新規登録", class: "btn btn-success btn-lg mx-auto" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

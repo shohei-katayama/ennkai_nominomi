@@ -37,7 +37,7 @@ class Admin::StoresController < ApplicationController
 private
 
   def store_params
-    params.repuire(:store).permit(:name)
+    params.repuire(:store).permit(:name, :introduction, :image, :genre_id)
   end
 
 end
