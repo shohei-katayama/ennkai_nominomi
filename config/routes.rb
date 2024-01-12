@@ -19,8 +19,9 @@ Rails.application.routes.draw do
     resources :stores, only: [:new,:index,:show] do
       resource :favorite, only: [:create, :destroy]
     end
-    resources :customers, only: [:new,:edit]
+    resources :customers, only: [:new]
     get 'favorites/index'
+    get "customers/edit" => "customers#edit"
     get "customers/my_page" => "customers#show"
     root to: "homes#top"
     get "about" => "homes#about"
