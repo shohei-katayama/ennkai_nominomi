@@ -1,2 +1,12 @@
-<h1>Public::Stores#show</h1>
-<p>Find me in app/views/public/stores/show.html.erb</p>
+<div class="container mt-5 mb-5 pt-5">
+  <div class="row text-center text-xs-center text-sm-left text-md-left">
+    <div class="col-xs-12 col-sm-12 col-md-6 mx-auto text-right">
+      <%= image_tag @store.get_image(400,250) %>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 mx-auto">
+      <h2><%= @store.name %></h2>
+      <p><%= @store.introduction %></p>
+      <li class="navbar-link my-1 ml-1"><%= link_to "予約画面へ", reservation_path, class: "btn btn-outline-dark" %></li>
+    </div>
+  </div>
+</div>

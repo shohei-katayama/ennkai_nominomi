@@ -8,6 +8,7 @@ class Public::StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def edit
