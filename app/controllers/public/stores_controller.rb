@@ -38,7 +38,7 @@ class Public::StoresController < ApplicationController
 private
 
   def store_params
-    params.repuire(:store).permit(:name, :introduction, :image, :genre_id)
+    params.require(:store).permit(:name, :introduction, :image, :genre_id)
   end
 
 end

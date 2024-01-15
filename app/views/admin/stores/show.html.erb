@@ -1,2 +1,29 @@
-<h1>Admin::Stores#show</h1>
-<p>Find me in app/views/admin/stores/show.html.erb</p>
+<div class="container">
+  <h2>店舗詳細</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @store.get_image(400,250) %>
+    </div>
+    <div class="col-md-7 offset-md-1">
+      <table class="table">
+        <tr>
+          <th style="border:none;">店舗名</th>
+          <td style="border:none;"><%= @store.name %></td>
+        </tr>
+        <tr>
+          <th style="border:none;">店舗説明</th>
+          <td style="border:none;"><%= @store.introduction %></td>
+        </tr>
+        <tr>
+          <th style="border:none;">ジャンル</th>
+          <td style="border:none;"><%= @store.genre.name %></td>
+        </tr>
+        <tr>
+          <th style="border:none;">
+            <%= link_to "編集する", edit_admin_store_path(@store.id), class: "btn btn-success btn-lg mx-auto" %>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

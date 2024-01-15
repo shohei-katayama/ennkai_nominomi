@@ -1,5 +1,6 @@
 class Admin::StoresController < ApplicationController
   def new
+    @store = Store.new
   end
 
   def index
@@ -17,7 +18,7 @@ class Admin::StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
-      redirect_to admin_stores_path, notice: "情報を追加しました。"
+      redirect_to admin_stores_path
     else
       @stores = Store.all
       render 'index'
@@ -27,7 +28,7 @@ class Admin::StoresController < ApplicationController
   def update
     @store = Store.find(params[:id])
     if @store.update(store_params)
-      redirect_to admin_stores_path, notice: "情報を更新しました。"
+      redirect_to admin_stores_path
     else
       render 'edit'
     end
@@ -37,7 +38,7 @@ class Admin::StoresController < ApplicationController
 private
 
   def store_params
-    params.repuire(:store).permit(:name, :introduction, :image, :genre_id)
+    params.require(:store).permit(:name, :introduction, :image, :genre_id)
   end
 
 end
