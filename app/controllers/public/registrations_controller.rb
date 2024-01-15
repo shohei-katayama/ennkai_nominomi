@@ -54,7 +54,7 @@ protected
 
    #The path used after sign up.
    def after_sign_up_path_for(resource)
-      storese_path
+      stores_path
    end
 
   # The path used after sign up for inactive accounts.
