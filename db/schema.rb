@@ -88,8 +88,12 @@ ActiveRecord::Schema.define(version: 2024_01_15_070227) do
   create_table "reservations", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "store_id", null: false
-    t.integer "day", null: false
+    t.integer "date", null: false
     t.integer "time", null: false
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "email", null: false
+    t.string "telephone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
