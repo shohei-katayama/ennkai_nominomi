@@ -5,7 +5,7 @@ class Public::ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
+    @reservation = Reservation.new
   end
   
 #ストロングパラメータ  
