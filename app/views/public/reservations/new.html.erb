@@ -16,6 +16,12 @@
           
         <label for ="inputEmail">メールアドレス</label>
           <%= f.email_field :email, placeholder: "sample@example.com", id:"inputEmail", class:"form-control" %>
+          
+        <label for ="inputTime">来店時間</label>
+          <%= f.time_field :time, id:"inputEmail", class:"form-control" %>
+          
+        <label for ="inputDate">来店日時</label>
+          <%= f.date_field :day, id:"inputDate", class:"form-control" %>
       </div>
 
       <div class ="col-4 mx-auto my-3">
