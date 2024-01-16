@@ -1,4 +1,9 @@
 class Store < ApplicationRecord
+  
+  has_many :reservations, through: :reservation_details
+  has_many :reservation_details, dependent: :destroy
+  belongs_to :genre
+  
   has_one_attached :image
   
   def get_image(width, height)
@@ -9,5 +14,8 @@ class Store < ApplicationRecord
     # image.variant(resize_to_limit: [width, height]).processed
     image.variant(gravity: :center, resize:"#{width}x#{height}^", crop:"#{width}x#{height}+0+0").processed
   end
+  
+  validates :name, presence: true
+  validates :introduction, presence: true
   
 end
