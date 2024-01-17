@@ -6,10 +6,10 @@
       <table class="table table-bordered mt-2">
         <thead>
           <tr class="bg-light">
-            <th>予約者名</th>
-            <th>予約詳細</th>
+            <th>予約店舗名</th>
             <th>予約日</th>
             <th>予約時刻</th>
+            <th>店舗詳細</th>
           </tr>
         </thead>
 
@@ -19,7 +19,6 @@
             <td><%= reservation.store.name %></td>
             <td><%= reservation.date.strftime("%Y年%m月%d日") %></td>
             <td><%= reservation.time.strftime("%H:%M") %></td>
-            <td>
             <td><%= link_to "表示する", store_path(reservation.store), class:"btn btn-primary" %></td>
           </tr>
           <% end %>
