@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get "customers/my_page" => "customers#show"
     root to: "homes#top"
     get "about" => "homes#about"
+    get "/search", to: "searches#search"
   end
 
 #管理者側

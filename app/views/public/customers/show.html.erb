@@ -4,8 +4,8 @@
       <h2>マイページ</h2>
     </div>
 
-<table class="table .table-striped-columns  bg-light">
-    <tbody>
+    <table class="table .table-striped-columns  bg-light">
+      <tbody>
         <tr>
             <th width="20%">氏名</th>
             <td><%= @customer.last_name %> <%= @customer.first_name %></td>
@@ -30,16 +30,15 @@
             <th>メールアドレス</th>
             <td><%= @customer.email %></td>
         </tr>
-    </tbody>
-</table>
-    <div class="col-10">
-      <%= link_to "編集する",  customers_edit_path, class: "btn btn-success mb-4" %><br>
-    </div>
+      </tbody>
+    </table>
+      <div class="col-10">
+        <%= link_to "編集する",  customers_edit_path, class: "btn btn-success mb-4" %><br>
+      </div>
     
-    <div class="col-10">
-      <strong>予約履歴</strong>  <%= link_to " 一覧を見る", reservations_path, class: "btn btn-primary mb-4" %>
+      <div class="col-10">
+        <strong>予約履歴</strong>  <%= link_to " 一覧を見る", reservations_path, class: "btn btn-primary mb-4" %>
+      </div>
     </div>
-    
-</div>
-</div>
+  </div>
 </div>

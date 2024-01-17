@@ -19,6 +19,18 @@ class Store < ApplicationRecord
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end
+  
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Store.where(name: content)
+    elsif method == 'forward'
+      Store.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Store.where('name LIKE ?', '%' + content)
+    else
+      Store.where('name LIKE ?', '%' + content + '%')
+    end
+  end
 
   validates :name, presence: true
   validates :introduction, presence: true
