@@ -11,17 +11,17 @@ Rails.application.routes.draw do
 
 #ユーザー側
   scope module: :public do
-    resources :reservations, only: [:index,:show] do
-        get "thanks" => "reservations#thanks"
-    end
+    resources :reservations, only: [:index,:show] 
     resources :stores, only: [:new,:index,:show] do
-      resources :reservations, only: [:new] do
+      resource :favorite, only: [:create, :destroy]
+      resources :reservations, only: [:new,:create] do
       collection do
         post "confirm" => "reservations#confirm"
+        get "thanks" => "reservations#thanks"
       end
       end
-      resource :favorite, only: [:create, :destroy]
     end
+    get "favorites/index" => "favorites#index"
     resources :customers, only: [:new]
     get 'favorites/index'
     get "customers/edit" => "customers#edit"

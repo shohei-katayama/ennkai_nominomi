@@ -6,7 +6,8 @@
       <table class="table table-bordered mt-2">
         <thead>
           <tr class="bg-light">
-            <th>予約日</th>
+            <th>予約日付</th>
+            <th>予約時間</th>
             <th>予約詳細</th>
           </tr>
         </thead>
@@ -14,7 +15,8 @@
         <tbody>
           <% @reservations.each do |reservation| %>
           <tr>
-            <td><%= reservation.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= reservation.date %></td>
+            <td><%= reservation.time %></td>
             <td><%= link_to "表示する", reservation_path(reservation.id), class:"btn btn-primary" %></td>
           </tr>
           <% end %>

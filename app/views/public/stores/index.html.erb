@@ -16,6 +16,11 @@
         <div>
           <p><%= store.name %></p>
         </div>
+        <div>
+          <p id="favorite_btn_<%= store.id %>">
+            <%= render "public/favorites/btn", store: store %>
+          </p>
+        </div>
       </div>
     <% end %>
   </div>

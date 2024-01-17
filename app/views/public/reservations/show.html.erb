@@ -1,2 +1,29 @@
-<h1>Public::Reservations#show</h1>
-<p>Find me in app/views/public/reservations/show.html.erb</p>
+<div class="container">
+  <h4 class="title bg-light"><strong>予約履歴詳細</strong></h4>
+    <div class="row">
+      <div class="col">
+        <h6 class="my-3"><strong>予約情報</strong></h6>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th class="bg-light">店舗名</th>
+              <td><%= @store.name %></td>
+            </tr>
+            <tr>
+              <th class="bg-light">予約日付</th>
+              <td><%= @reservation.date %></td>
+            </tr>
+            <tr>
+              <th class="bg-light">予約時間</th>
+              <td><%= @reservation.time %></td>
+            </tr>
+            <tr>
+              <th class="bg-light">予約人数</th>
+              <td><%= @reservation.guests %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

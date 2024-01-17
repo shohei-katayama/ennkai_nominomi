@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_15_070227) do
+ActiveRecord::Schema.define(version: 2024_01_17_050809) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 2024_01_15_070227) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "store_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -80,20 +87,20 @@ ActiveRecord::Schema.define(version: 2024_01_15_070227) do
   create_table "reservation_details", force: :cascade do |t|
     t.integer "reservation_id", null: false
     t.integer "store_id", null: false
-    t.integer "people", null: false
+    t.integer "guests", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "store_id", null: false
     t.integer "date", null: false
     t.integer "time", null: false
     t.string "name", null: false
     t.string "address", null: false
     t.string "email", null: false
     t.string "telephone_number", null: false
+    t.string "guests", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

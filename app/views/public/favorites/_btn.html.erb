@@ -1,0 +1,11 @@
+<% if store.favorited_by?(current_customer) %>
+  <%= link_to store_favorite_path(store), method: :delete do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= store.favorites.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to store_favorite_path(store), method: :post do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= store.favorites.count %> いいね
+  <% end %>
+<% end %>

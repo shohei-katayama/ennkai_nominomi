@@ -9,6 +9,7 @@
             <th>店舗名</th>
             <th>日付</th>
             <th>時間</th>
+            <th>人数</th>
           </tr>
         </thead>
         
@@ -17,16 +18,18 @@
             <td><%= @store.name %></td>
             <td><%= @reservation.date %></td>
             <td><%= @reservation.time %></td>
+            <td><%= @reservation.guests %></td>
           </tr>
         </tbody>
         
   <div class="row justify-content-center">
-    <%= form_with model: @reservation, url: reservations_path(@reservation.id), method: :post do |f| %>
+    <%= form_with model: @reservation, url: thanks_store_reservations_path(@store), method: :get do |f| %>
       <%= f.hidden_field :customer_id %>
       <%= f.hidden_field :address %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :time %>
       <%= f.hidden_field :date %>
+      <%= f.hidden_field :guests %>
       <%= f.submit "予約を確定する", class: "btn btn-success" %>
     <% end %>
   </div>

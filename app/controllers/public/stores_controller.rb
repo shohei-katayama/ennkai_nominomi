@@ -3,7 +3,10 @@ class Public::StoresController < ApplicationController
   end
 
   def index
-    @stores = Store.all
+    @stores = Store.all.sort {|a,b|
+    b.favorites.where(created_at: from...to).size <=>
+    a.favorites.where(created_at: from...to).size
+    }
   end
 
   def show
