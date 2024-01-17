@@ -1,7 +1,7 @@
 <div class ="container">
   <h4 class ="title bg-light"><strong><%= @store.name %>予約情報入力</strong></h4>
 
-  <%= form_with model: @reservation, url: confirm_store_reservations_path(@store), method: :post do |f| %>
+  <%= form_with model: @reservation, url: store_reservations_path(@store), method: :post do |f| %>
   <div class ="row">
     <div class ="col">
       <div class ="address_select">

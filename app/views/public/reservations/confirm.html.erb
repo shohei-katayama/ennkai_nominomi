@@ -12,24 +12,18 @@
             <th>人数</th>
           </tr>
         </thead>
-        
+
         <tbody>
           <tr>
             <td><%= @store.name %></td>
-            <td><%= @reservation.date %></td>
-            <td><%= @reservation.time %></td>
+            <td><%= @reservation.date.strftime("%Y年%m月%d日") %></td>
+            <td><%= @reservation.time.strftime("%H:%M") %></td>
             <td><%= @reservation.guests %></td>
           </tr>
         </tbody>
-        
+
   <div class="row justify-content-center">
-    <%= form_with model: @reservation, url: thanks_store_reservations_path(@store), method: :get do |f| %>
-      <%= f.hidden_field :customer_id %>
-      <%= f.hidden_field :address %>
-      <%= f.hidden_field :name %>
-      <%= f.hidden_field :time %>
-      <%= f.hidden_field :date %>
-      <%= f.hidden_field :guests %>
+    <%= form_with model: @reservation, url: thanks_store_reservations_path(@store, reservation_id: params[:reservation_id]), method: :patch do |f| %>
       <%= f.submit "予約を確定する", class: "btn btn-success" %>
     <% end %>
   </div>
