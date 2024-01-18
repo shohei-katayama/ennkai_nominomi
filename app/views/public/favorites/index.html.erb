@@ -1,13 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+<div class = "container">
+  <div class = "row">
+    <div class = "col-sm-12">
       <h2>お気に入り一覧(全<%= @favorites.count %>件)</h2>
     </div>
   </div>
 
-  <div class="row">
+  <div class = "row">
     <% @favorites.each do |favorite| %>
-      <div class="col-sm-3">
+      <div class = "col-sm-3">
         <div>
           <%= link_to store_path(favorite.store.id) do %>
             <%= image_tag favorite.store.get_image(200,100) %>
@@ -17,7 +17,7 @@
           <p><%= favorite.store.name %></p>
         </div>
         <div>
-          <p id="favorite_btn_<%= favorite.store.id %>">
+          <p id = "favorite_btn_<%= favorite.store.id %>">
             <%= render "public/favorites/btn", store: favorite.store %>
           </p>
         </div>

@@ -1,3 +1,20 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-sm-12">
+      <h3>Stores search for "<%= @content %>"</h3>
+    </div>
 
-<h3>Stores search for "<%= @content %>"</h3>
-  <%= render 'public/stores/index', stores: @records %>  
+    <% @stores.each do |store| %>
+      <div class = "col-sm-3">
+        <div>
+          <%= link_to store_path(store.id) do %>
+            <%= image_tag store.get_image(200,100) %>
+          <% end %>
+        </div>
+        <div>
+          <p><%= store.name %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
