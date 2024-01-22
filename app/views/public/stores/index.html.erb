@@ -17,9 +17,13 @@
           <p><%= store.name %></p>
         </div>
         <div>
-          <p id="favorite_btn_<%= store.id %>">
-            <%= render "public/favorites/btn", store: store %>
-          </p>
+          <% if customer_signed_in? %>
+            <p id="favorite_btn_<%= store.id %>">
+              <%= render "public/favorites/btn", store: store %>
+            </p>
+          <% else %>
+            <p></p>
+          <% end %>
         </div>
       </div>
     <% end %>

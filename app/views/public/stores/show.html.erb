@@ -6,9 +6,13 @@
     <div class="col-xs-12 col-sm-12 col-md-6 mx-auto">
       <h2><%= @store.name %></h2>
       <p><%= @store.introduction %></p>
-      <p id="favorite_btn_<%= @store.id %>">
-        <%= render "public/favorites/btn", store: @store %>
-      </p>
+      <% if customer_signed_in? %>
+        <p id="favorite_btn_<%= @store.id %>">
+          <%= render "public/favorites/btn", store: @store %>
+        </p>
+      <% else %>
+        <p></p>
+      <% end %>
       <%= link_to "予約画面へ", new_store_reservation_path(@store), class: "btn btn-outline-dark" %></li>
     </div>
   </div>
