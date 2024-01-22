@@ -14,7 +14,7 @@ class Admin::StoresController < ApplicationController
   def edit
     @store = Store.find(params[:id])
   end
-  
+
   def create
     @store = Store.new(store_params)
     if @store.save
@@ -24,11 +24,11 @@ class Admin::StoresController < ApplicationController
       render 'index'
     end
   end
-  
+
   def update
     @store = Store.find(params[:id])
     if @store.update(store_params)
-      redirect_to admin_stores_path
+      redirect_to admin_store_path(@store)
     else
       render 'edit'
     end
