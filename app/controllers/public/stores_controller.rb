@@ -3,9 +3,9 @@ class Public::StoresController < ApplicationController
   end
 
   def index
-    @stores = Store.all.sort {|a,b|
-    b.favorites <=>a.favorites
-    }
+    # refs: https://qiita.com/msyk_tym/items/512bedbeff520eb669f5
+    # refs: https://qiita.com/kurokawa516/items/5ffcfebed09e0d49bf43
+    @stores = Store.left_joins(:favorites).order(store_id: :desc).distinct
   end
 
   def show
@@ -16,7 +16,7 @@ class Public::StoresController < ApplicationController
   def edit
     @store = Store.find(params[:id])
   end
-  
+
   def create
     @store = Store.new(store_params)
     if @store.save
@@ -26,7 +26,7 @@ class Public::StoresController < ApplicationController
       render 'index'
     end
   end
-  
+
   def update
     @store = Store.find(params[:id])
     if @store.update(store_params)

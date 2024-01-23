@@ -15,9 +15,9 @@
         <tbody>
           <% @reservations.each do |reservation| %>
           <tr>
-            <td><%= reservation.date %></td>
-            <td><%= reservation.time %></td>
-            <td><%= link_to "表示する", reservation_path(reservation.id), class:"btn btn-primary" %></td>
+            <td><%= reservation.date.strftime("%Y年%m月%d日") %></td>
+            <td><%= reservation.time.strftime("%H:%M") %></td>
+            <td><%= link_to "表示する", admin_reservation_path(reservation.id), class:"btn btn-primary" %></td>
           </tr>
           <% end %>
         </tbody>

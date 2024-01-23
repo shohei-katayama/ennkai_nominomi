@@ -2,7 +2,7 @@ class Store < ApplicationRecord
 
   has_many :reservations, through: :reservation_details
   belongs_to :genre
-  belongs_to :favorites, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :image
 
@@ -13,11 +13,11 @@ class Store < ApplicationRecord
     end
     image.variant(gravity: :center, resize:"#{width}x#{height}^", crop:"#{width}x#{height}+0+0").processed
   end
-  
+
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end
-  
+
   def self.search_for(content, method)
     if method == 'perfect'
       Store.where(name: content)
