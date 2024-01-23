@@ -4,8 +4,7 @@ class Public::StoresController < ApplicationController
 
   def index
     @stores = Store.all.sort {|a,b|
-    b.favorites.where(created_at: from...to).size <=>
-    a.favorites.where(created_at: from...to).size
+    b.favorites <=>a.favorites
     }
   end
 

@@ -24,8 +24,9 @@ Rails.application.routes.draw do
     get "favorites/index" => "favorites#index"
     resources :customers, only: [:new]
     get 'favorites/index'
-    get "customers/edit" => "customers#edit"
+    get "customers/infomation/edit" => "customers#edit"
     get "customers/my_page" => "customers#show"
+    patch "customers/infomation" => "customers#update"
     root to: "homes#top"
     get "about" => "homes#about"
     get "/search", to: "searches#search"

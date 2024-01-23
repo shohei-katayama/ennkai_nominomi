@@ -10,10 +10,14 @@
         <p id="favorite_btn_<%= @store.id %>">
           <%= render "public/favorites/btn", store: @store %>
         </p>
+        <%= link_to "予約画面へ", new_store_reservation_path(@store), class: "btn btn-outline-dark" %></li>
       <% else %>
-        <p></p>
+        予約画面に進むには
+        <%= link_to "新規登録へ", new_customer_registration_path, class: "btn btn-outline-dark" %></li></br>
+        または
+        <%= link_to "ログインへ", new_customer_session_path_path, class: "btn btn-outline-dark" %></li>
       <% end %>
-      <%= link_to "予約画面へ", new_store_reservation_path(@store), class: "btn btn-outline-dark" %></li>
+      
     </div>
   </div>
 </div>
