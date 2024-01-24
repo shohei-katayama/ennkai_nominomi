@@ -33,6 +33,7 @@ class Admin::StoresController < ApplicationController
       render 'edit'
     end
   end
+  
 
 #ストロングパラメータ
 private
