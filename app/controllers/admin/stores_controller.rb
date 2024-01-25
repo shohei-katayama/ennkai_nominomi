@@ -34,6 +34,11 @@ class Admin::StoresController < ApplicationController
     end
   end
   
+  def destroy
+    @store = Store.find(params[:id])
+    @store.destroy
+    redirect_to admin_stores_path
+  end
 
 #ストロングパラメータ
 private

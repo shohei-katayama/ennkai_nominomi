@@ -1,6 +1,6 @@
 class Store < ApplicationRecord
 
-  has_many :reservations, through: :reservation_details
+  has_many :reservations, dependent: :destroy
   belongs_to :genre
   has_many :favorites, dependent: :destroy
 

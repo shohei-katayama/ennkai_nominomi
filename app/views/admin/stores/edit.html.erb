@@ -26,6 +26,7 @@
       </table>
       <div class="col d-flex justify-content-center">
          <%= f.submit "変更を保存", class: "btn btn-success btn-lg mx-auto" %>
+         <%= link_to '店舗を削除する', admin_store_path(@store), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger px-3' %>
       </div>
       <% end %>
     </div>

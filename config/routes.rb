@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :reservations, only: [:index,:show,:update]
     resources :genres, only: [:new,:index,:edit,:create,:update]
-    resources :stores, only: [:new,:index,:show,:edit,:create,:update]
+    resources :stores, only: [:new,:index,:show,:edit,:create,:update,:destroy]
+    #店舗の削除
+    #delete '/stores/:id', to: 'stores#destroy', as: 'admin_store'
     resources :customers, only: [:index,:show,:edit,:update]
     root to: "homes#top"
   end

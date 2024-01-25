@@ -6,17 +6,27 @@
         <thead>
           <tr>
             <th>予約者</th>
-            <td><%= link_to @reservation.name, admin_customers_path %></td>
+            <td><%= @reservation.name %></td>
           </tr>
-
           <tr>
             <th>予約日付</th>
             <td><%= @reservation.date.strftime("%Y/%m/%d") %></td>
           </tr>
-          
           <tr>
             <th>予約時間</th>
             <td><%= @reservation.time.strftime("%H:%M") %></td>
+          </tr>
+          <tr>
+            <th>店舗名</th>
+            <td><%= link_to @reservation.store.name ,admin_store_path(@reservation.store) %></td>
+          </tr>
+          <tr>
+            <th>予約人数</th>
+            <td><%= @reservation.guests %></td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td><%= @reservation.telephone_number %></td>
           </tr>
         </thead>
       </table>

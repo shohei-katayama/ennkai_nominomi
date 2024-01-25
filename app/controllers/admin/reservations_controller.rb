@@ -6,6 +6,7 @@ class Admin::ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    #@store = Store.find(params[:store_id])
   end
   
 #ストロングパラメータ  
