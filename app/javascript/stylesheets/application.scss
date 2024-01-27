@@ -1,1 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
+.top_image{
+  background-image: url("../images/居酒屋　背景イラスト.png");
+  background-size: cover;
+  padding: 100px;
+}
